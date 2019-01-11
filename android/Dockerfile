@@ -32,7 +32,8 @@ RUN apt update -y \
     && echo ${TZ} > /etc/timezone \
     && apt autoremove -y \
     && apt autoclean -y \
-    && rm -rf   gradle-${GRADLE_VERSION}-bin.zip \
+    && rm -rf   /var/lib/apt/lists/* \
+                gradle-${GRADLE_VERSION}-bin.zip \
                 sdk-tools-linux-${SDK_TOOLS_VERSION}.zip
 
 CMD ["/bin/bash"]
