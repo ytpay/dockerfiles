@@ -26,4 +26,4 @@ RUN apt update -y \
     && apt autoclean -y \
     && rm -rf /var/lib/apt/lists/*
 
-CMD ["/bin/bash"]
+CMD ["bash"]
