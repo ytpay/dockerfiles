@@ -10,7 +10,9 @@
 - `cnpm`: 将 npm registry 设置为 `NPM_REGISTRY`(默认为淘宝)，disturl 设置为 `NPM_DISTURL`(默认为淘宝)，cache 目录设置为 `NPM_CACHE_DIR`(默认为 `/data/npm_cache`)，其他等同于 `npm` 命令
 - `cyarn`: 将 yarn cache-folder 设置为 `YARN_CACHE_DIR`(默认为 `/data/yarn_cache`)，其他等同于 `yarn` 命令
 
-gradle 受环境变量 `GRADLE_CACHE_DIR` 影响，默认将会使用 `data/gradle_cache` 作为 cache 目录
+gradle 受环境变量 `GRADLE_CACHE_DIR` 影响，默认将会使用 `/data/gradle_cache` 作为 cache 目录
+
+**作为 CI Build 镜像使用时，最好持久化相关 cache 目录以增加编译速度**
 
 ### JDK 切换
 
