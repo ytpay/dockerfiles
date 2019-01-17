@@ -4,5 +4,5 @@ npm --registry=${NPM_REGISTRY} \
     --unsafe-perm \
     --cache=${NPM_CACHE_DIR} \
     --cache-min 9999999 \
-    --disturl=https://npm.taobao.org/dist \
+    --disturl=${NPM_DISTURL} \
     --userconfig=$HOME/.cnpmrc $@
