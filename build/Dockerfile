@@ -58,6 +58,7 @@ COPY cmvn /usr/bin/cmvn
 COPY entrypoint.sh /entrypoint.sh
 
 VOLUME ${NPM_CACHE_DIR}
+VOLUME ${YARN_CACHE_DIR}
 VOLUME ${MAVEN_CACHE_DIR}
 VOLUME ${GRADLE_CACHE_DIR}
 
