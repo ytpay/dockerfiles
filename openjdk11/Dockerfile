@@ -6,6 +6,8 @@ ARG TZ="Asia/Shanghai"
 ARG JAVA_OPTS="-XX:+PrintFlagsFinal"
 ARG JAVA_GC_LOG="/var/log/jvmgc.log"
 
+ENV JAVA_GC_LOG ${JAVA_GC_LOG}
+
 # refs => http://calvin1978.blogcn.com/articles/jvmoption-7.html
 ENV JAVA_OPTS   -Djava.security.egd=file:/dev/./urandom \
                 -XX:AutoBoxCacheMax=20000 \
