@@ -4,7 +4,7 @@ LABEL maintainer="mritd <mritd1234@gmail.com>"
 
 ARG TZ="Asia/Shanghai"
 ARG JAVA_OPTS="-XX:+PrintFlagsFinal"
-ARG JAVA_GC_LOG='/var/log/jvmgc.log'
+ARG JAVA_GC_LOG="/var/log/jvmgc.log"
 
 # refs => http://calvin1978.blogcn.com/articles/jvmoption-7.html
 ENV JAVA_OPTS   -Djava.security.egd=file:/dev/./urandom \
