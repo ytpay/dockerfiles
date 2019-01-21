@@ -49,4 +49,6 @@ RUN apt update -y \
                 ${JAVA_HOME}/jre/lib/security/README.txt \
                 /tmp/*
 
+COPY docker-java-home /usr/bin/docker-java-home
+
 CMD ["bash"]
