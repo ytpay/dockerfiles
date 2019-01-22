@@ -18,6 +18,7 @@ ENV NPM_CACHE_DIR /data/npm_cache
 ENV NPM_REGISTRY https://registry.npm.taobao.org
 ENV NPM_DISTURL https://npm.taobao.org/dist
 ENV YARN_CACHE_DIR /data/yarn_cache
+ENV YARN_REGISTRY https://registry.npm.taobao.org
 ENV MAVEN_CACHE_DIR /data/maven_cache
 ENV GRADLE_CACHE_DIR /data/gradle_cache
 ENV GRADLE_USER_HOME ${GRADLE_CACHE_DIR}
