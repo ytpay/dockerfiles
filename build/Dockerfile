@@ -7,6 +7,7 @@ ARG TZ='Asia/Shanghai'
 ENV TZ ${TZ}
 
 ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV NVM_VERSION 0.34.0
 ENV NVM_DIR /usr/local/nvm
