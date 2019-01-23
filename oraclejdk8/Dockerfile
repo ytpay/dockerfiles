@@ -7,6 +7,7 @@ ARG JAVA_GC_LOG="/var/log/jvmgc.log"
 
 ENV TZ ${TZ}
 ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV JAVA_VERSION 8
 ENV JAVA_UPDATE 201
@@ -16,6 +17,7 @@ ENV JAVA_HOME /usr/lib/jvm/default-jvm
 ENV JAVA_DOWNLOAD_URL http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}u${JAVA_UPDATE}-b${JAVA_BUILD}/${JAVA_PATH}/jdk-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz
 ENV JCE_DOWNLOAD_URL http://download.oracle.com/otn-pub/java/jce/${JAVA_VERSION}/jce_policy-${JAVA_VERSION}.zip
 ENV JAVA_GC_LOG ${JAVA_GC_LOG}
+
 # refs => http://calvin1978.blogcn.com/articles/jvmoption-7.html
 ENV JAVA_OPTS   -Djava.security.egd=file:/dev/./urandom \
                 -XX:AutoBoxCacheMax=20000 \
