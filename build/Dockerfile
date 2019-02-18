@@ -35,8 +35,8 @@ RUN apt-get update -y \
         tzdata git make gcc g++ libpng-dev locales -y \
     && locale-gen --purge en_US.UTF-8 zh_CN.UTF-8 \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
-    && echo -e 'LANG="en_US.UTF-8"' > /etc/default/locale \
-    && echo -e 'LANGUAGE="en_US:en"' >> /etc/default/locale \
+    && echo 'LANG="en_US.UTF-8"' > /etc/default/locale \
+    && echo 'LANGUAGE="en_US:en"' >> /etc/default/locale \
     && mkdir -p ${NVM_DIR} ${NPM_CACHE_DIR} \
         ${MAVEN_CACHE_DIR} ${GRADLE_CACHE_DIR} \
     && curl -s ${NVM_INSTALL_URL} | bash \
