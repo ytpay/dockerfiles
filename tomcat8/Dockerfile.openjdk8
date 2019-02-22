@@ -48,7 +48,7 @@ RUN apt update -y \
     && echo ${TZ} > /etc/timezone \
     && apt autoremove -y \
     && apt autoclean -y \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf ${CATALINA_HOME}/webapps/* /var/lib/apt/lists/*
 
 # verify Tomcat Native is working properly
 RUN set -e \
