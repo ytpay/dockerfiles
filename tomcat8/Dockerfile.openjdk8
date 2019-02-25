@@ -31,7 +31,7 @@ RUN apt update -y \
     && gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)" \
     && ./configure --build="${gnuArch}" \
         --libdir="${TOMCAT_NATIVE_LIBDIR}" \
-        --prefix="${CATALINA_HOME}" \
+       --prefix="${CATALINA_HOME}" \
         --with-apr="$(which apr-1-config)" \
         --with-java-home="$(docker-java-home)" \
         --with-ssl=yes \
@@ -49,6 +49,10 @@ RUN apt update -y \
     && apt autoremove -y \
     && apt autoclean -y \
     && rm -rf ${CATALINA_HOME}/webapps/* \
+        ${TOMCAT_HOME}/*.md \
+        ${TOMCAT_HOME}/*.txt \
+        ${TOMCAT_HOME}/bin/*.bat \
+        ${TOMCAT_HOME}/RELEASE-NOTES \
         ${TOMCAT_HOME}/tomcat.tar.gz \
         /var/lib/apt/lists/*
 
