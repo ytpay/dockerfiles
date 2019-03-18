@@ -9,6 +9,6 @@
 
 - Copy from mritd/build:3.1.0, init repo
 
-### 2019-03-18 update jdk8
+### 2019-03-18 update open jdk8
 
-- update jdk8 to 8.0.202
+- update open jdk8 to 8.0.202
