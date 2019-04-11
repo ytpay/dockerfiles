@@ -1,4 +1,4 @@
-FROM gozap/openjdk8:8u181
+FROM gozap/openjdk8:8u212
 
 LABEL maintainer="mritd <mritd1234@gmail.com>"
 
@@ -10,8 +10,8 @@ ENV PATH ${CATALINA_HOME}/bin:${PATH}
 ENV TOMCAT_HOME ${CATALINA_HOME}
 ENV TOMCAT_NATIVE_LIBDIR ${CATALINA_HOME}/native-jni-lib
 ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.5.37
-ENV TOMCAT_DOWNLOAD_URL http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
+ENV TOMCAT_VERSION 8.5.39
+ENV TOMCAT_DOWNLOAD_URL http://mirror.bit.edu.cn/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz
 ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}${TOMCAT_NATIVE_LIBDIR}
 
 RUN apt update -y \
@@ -23,7 +23,7 @@ RUN apt update -y \
         libapr1-dev libssl-dev make \
     && mkdir -p ${TOMCAT_HOME} \
     && (cd ${TOMCAT_HOME} \
-    && wget -O tomcat.tar.gz ${TOMCAT_DOWNLOAD_URL} \
+    && wget -q -O tomcat.tar.gz ${TOMCAT_DOWNLOAD_URL} \
     && tar -xvf tomcat.tar.gz --strip-components=1 \
     && nativeBuildDir="$(mktemp -d)" \
     && tar -xvf bin/tomcat-native.tar.gz -C "${nativeBuildDir}" --strip-components=1 \
@@ -68,4 +68,4 @@ RUN set -e \
 
 WORKDIR ${CATALINA_HOME}
 
-CMD ["/bin/bash"]
+CMD ["bash"]
