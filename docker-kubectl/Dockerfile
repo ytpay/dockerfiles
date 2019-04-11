@@ -1,4 +1,4 @@
-FROM docker:18.09.1
+FROM docker:18.09.4
 
 LABEL maintainer="mritd <mritd1234@gmail.com>"
 
@@ -6,7 +6,7 @@ ARG TZ="Asia/Shanghai"
 
 ENV TZ ${TZ}
 
-ENV KUBE_VERSION v1.13.2
+ENV KUBE_VERSION v1.13.4
 ENV KUBECTL_DOWNLOAD_URL https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl
 
 RUN apk upgrade --update \
