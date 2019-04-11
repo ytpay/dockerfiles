@@ -1,4 +1,4 @@
-FROM gozap/openjdk8:8u181 
+FROM gozap/openjdk8:8u212
 
 LABEL maintainer="mritd <mritd1234@gmail.com>"
 
