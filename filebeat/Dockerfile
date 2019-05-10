@@ -14,6 +14,8 @@ RUN apk upgrade \
 
 FROM alpine:3.9
 
+LABEL maintainer="mritd <mritd@linux.com>"
+
 ARG TZ="Asia/Shanghai"
 
 ENV TZ ${TZ}

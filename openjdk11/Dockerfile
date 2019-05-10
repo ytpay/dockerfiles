@@ -1,6 +1,6 @@
 FROM openjdk:11.0.3-jdk-slim-stretch
 
-LABEL maintainer="mritd <mritd1234@gmail.com>"
+LABEL maintainer="mritd <mritd@linux.com>"
 
 ARG TZ="Asia/Shanghai"
 ARG JAVA_OPTS="-XX:+PrintFlagsFinal"

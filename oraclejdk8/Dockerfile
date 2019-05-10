@@ -1,6 +1,6 @@
 FROM debian:9-slim
 
-LABEL maintainer="mritd <mritd1234@gmail.com>"
+LABEL maintainer="mritd <mritd@linux.com>"
 
 ARG TZ="Asia/Shanghai"
 ARG JAVA_GC_LOG="/var/log/jvmgc.log" 
