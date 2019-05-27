@@ -9,6 +9,10 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LANGUAGE en_US:en
 
+ENV NPM_CACHE_DIR /data/npm_cache
+ENV NPM_REGISTRY https://registry.npm.taobao.org
+ENV NPM_DISTURL https://npm.taobao.org/dist
+
 ENV TINI_VERSION v0.18.0
 ENV TINI_DOWNLOAD_URL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-amd64
 
@@ -26,6 +30,8 @@ RUN apt update -y \
     && apt autoremove -y \
     && apt autoclean -y \
     && rm -rf /var/lib/apt/lists/*
+
+COPY cnpm /usr/local/bin/cnpm
 
 ENTRYPOINT ["tini","--"]
 
