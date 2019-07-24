@@ -1,4 +1,4 @@
-FROM node:10.15.3-stretch-slim
+FROM node:10.16.0-stretch-slim
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
@@ -16,7 +16,8 @@ ENV NPM_DISTURL https://npm.taobao.org/dist
 ENV TINI_VERSION v0.18.0
 ENV TINI_DOWNLOAD_URL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-amd64
 
-RUN apt update -y \
+RUN set -ex \
+    && apt update -y \
     && apt upgrade -y \
     && apt install tzdata locales curl procps dnsutils iputils-ping -y \
     && curl -sSL ${TINI_DOWNLOAD_URL} > /usr/bin/tini \
