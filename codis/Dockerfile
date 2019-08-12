@@ -21,15 +21,21 @@ LABEL maintainer="mritd <mritd@linux.com>"
 ARG TZ="Asia/Shanghai"
 
 ENV TZ ${TZ}
-ENV PATH ${PATH}:/usr/local/codis/bin
+ENV INSTALL_DIR /usr/local/codis/
+ENV PATH ${PATH}:${INSTALL_DIR}/bin
 
 RUN apk upgrade \
     && apk add bash tzdata \
+    && mkdir -p ${INSTALL_DIR}/conf \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone \
     && rm -rf /var/cache/apk/*
 
-COPY --from=builder /go/src/github.com/CodisLabs/codis/bin /usr/local/codis
+COPY --from=builder /go/src/github.com/CodisLabs/codis/bin ${INSTALL_DIR}/bin 
+
+RUN set -ex \
+    && codis-dashboard --default-config > ${INSTALL_DIR}/conf/dashboard.toml \
+    && codis-proxy --default-config > ${INSTALL_DIR}/conf/proxy.toml
 
 WORKDIR /data
 
