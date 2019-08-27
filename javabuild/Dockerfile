@@ -7,7 +7,7 @@ ENV MAVEN_CACHE_DIR /data/maven_cache
 ENV MAVEN_INSTALL_DIR /usr/local/maven
 ENV MAVEN_DOWNLOAD_URL http://mirrors.sonic.net/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
 
-ENV GRADLE_VERSION 5.5.1
+ENV GRADLE_VERSION 5.6
 ENV GRADLE_CACHE_DIR /data/gradle_cache
 ENV GRADLE_INSTALL_DIR /usr/local/gradle
 ENV GRADLE_DOWNLOAD_URL https://downloads.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip
