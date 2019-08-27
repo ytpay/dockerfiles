@@ -1,4 +1,4 @@
-FROM openjdk:8u212-jdk-slim-stretch
+FROM openjdk:8u222-jdk-slim
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
@@ -30,7 +30,7 @@ ENV JAVA_OPTS   -Djava.security.egd=file:/dev/./urandom \
 
 RUN apt update -y \
     && apt upgrade -y \
-    && apt install tzdata locales curl procps dnsutils iputils-ping -y \
+    && apt install tzdata locales curl wget unzip procps dnsutils iputils-ping -y \
     && curl -sSL ${TINI_DOWNLOAD_URL} > /usr/bin/tini \
     && chmod +x /usr/bin/tini \
     && locale-gen --purge en_US.UTF-8 zh_CN.UTF-8 \
