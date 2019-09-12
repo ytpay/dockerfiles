@@ -1,4 +1,4 @@
-FROM node:10.16.0-stretch-slim
+FROM node:10.16.3-stretch-slim
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
