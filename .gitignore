@@ -10,3 +10,6 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+oraclejdk8/*.tar.gz
+oraclejdk8/*.zip
