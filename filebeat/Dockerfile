@@ -1,6 +1,6 @@
-FROM golang:1.12.5-alpine3.9 as builder
+FROM golang:1.13.0-alpine3.10 as builder
 
-ENV FILEBEAT_VERSION 7.1.1
+ENV FILEBEAT_VERSION 7.3.2
 ENV FILEBEAT_SOURCE_PATH ${GOPATH}/src/github.com/elastic
 
 RUN apk upgrade \
@@ -12,12 +12,12 @@ RUN apk upgrade \
     && cd beats/filebeat && git checkout v${FILEBEAT_VERSION} -b v${FILEBEAT_VERSION} \
     && mage build
 
-FROM alpine:3.9 as dist
+FROM alpine:3.10 as dist
 
 ARG TZ="Asia/Shanghai"
 
 ENV TZ ${TZ}
-ENV FILEBEAT_VERSION 7.1.1
+ENV FILEBEAT_VERSION 7.3.2
 ENV FILEBEAT_HOME /usr/share/filebeat
 ENV FILEBEAT_DOWNLOAD_URL https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz
 
