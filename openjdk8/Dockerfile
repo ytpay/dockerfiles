@@ -1,4 +1,4 @@
-FROM openjdk:8u222-jdk-slim
+FROM openjdk:8u232-jdk-slim
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
