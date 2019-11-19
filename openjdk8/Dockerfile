@@ -3,30 +3,14 @@ FROM openjdk:8u232-jdk-slim
 LABEL maintainer="mritd <mritd@linux.com>"
 
 ARG TZ="Asia/Shanghai"
-ARG JAVA_OPTS="-XX:+PrintFlagsFinal"
-ARG JAVA_GC_LOG="/var/log/jvmgc.log"
 
 ENV TZ ${TZ}
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LANGUAGE en_US:en
-ENV JAVA_GC_LOG ${JAVA_GC_LOG}
 
 ENV TINI_VERSION v0.18.0
 ENV TINI_DOWNLOAD_URL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-amd64
-
-# refs => http://calvin1978.blogcn.com/articles/jvmoption-7.html
-ENV JAVA_OPTS   -Djava.security.egd=file:/dev/./urandom \
-                -XX:AutoBoxCacheMax=20000 \
-                -XX:+UnlockExperimentalVMOptions \
-                -XX:+UseCGroupMemoryLimitForHeap \
-                -XX:+AlwaysPreTouch \
-                -XX:+PrintCommandLineFlags \
-                -XX:+PrintGCDateStamps \
-                -XX:+PrintGCDetails \
-                -XX:+PrintGCApplicationStoppedTime \
-                -Xloggc:${JAVA_GC_LOG} \
-                ${JAVA_OPTS}
 
 RUN apt update -y \
     && apt upgrade -y \
