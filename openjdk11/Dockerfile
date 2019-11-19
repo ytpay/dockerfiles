@@ -1,4 +1,4 @@
-FROM openjdk:11.0.5-jdk-slim-stretch
+FROM openjdk:11.0.5-jdk-slim-buster
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
