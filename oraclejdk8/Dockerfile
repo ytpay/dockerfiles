@@ -3,8 +3,6 @@ FROM debian:9-slim
 LABEL maintainer="mritd <mritd@linux.com>"
 
 ARG TZ="Asia/Shanghai"
-ARG JAVA_GC_LOG="/var/log/jvmgc.log" 
-ARG JAVA_OPTS=""
 
 ENV TZ ${TZ}
 ENV LANG en_US.UTF-8
@@ -13,13 +11,9 @@ ENV LANGUAGE en_US:en
 ENV JAVA_VERSION 8u231
 ENV JCE_POLICY_VERSION 8
 ENV JAVA_HOME /usr/lib/jvm/default-jvm
-ENV JAVA_GC_LOG ${JAVA_GC_LOG}
 
 ENV TINI_VERSION v0.18.0
 ENV TINI_DOWNLOAD_URL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-amd64
-
-# refs => http://calvin1978.blogcn.com/articles/jvmoption-7.html
-ENV JAVA_OPTS ${JAVA_OPTS}
 
 RUN set -ex \
     && apt update -y \
