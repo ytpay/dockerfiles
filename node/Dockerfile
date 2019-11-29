@@ -1,4 +1,4 @@
-FROM node:10.16.3-stretch-slim
+FROM node:10.17.0-buster-slim
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
@@ -31,8 +31,6 @@ RUN set -ex \
     && apt autoremove -y \
     && apt autoclean -y \
     && rm -rf /var/lib/apt/lists/*
-
-COPY cnpm /usr/local/bin/cnpm
 
 ENTRYPOINT ["tini","--"]
 
