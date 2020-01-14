@@ -8,7 +8,6 @@ ENV TZ ${TZ}
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LANGUAGE en_US:en
-ENV JAVA_GC_LOG ${JAVA_GC_LOG}
 
 ENV TINI_VERSION v0.18.0
 ENV TINI_DOWNLOAD_URL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-amd64
