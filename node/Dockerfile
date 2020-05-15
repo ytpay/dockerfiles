@@ -33,6 +33,8 @@ RUN set -ex \
     && apt autoclean -y \
     && rm -rf /var/lib/apt/lists/*
 
+COPY cnpm /usr/local/bin/cnpm
+
 ENTRYPOINT ["tini","--"]
 
 CMD ["node"]
