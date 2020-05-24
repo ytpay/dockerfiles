@@ -1,0 +1,2 @@
+github.com/gozap/filebeat-processors/add_filename
+github.com/gozap/filebeat-processors/split_message
