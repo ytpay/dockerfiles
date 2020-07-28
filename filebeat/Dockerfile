@@ -1,11 +1,11 @@
-FROM golang:1.14.3-alpine3.11 as builder
+FROM golang:1.14.6-alpine3.12 as builder
 
-ENV FILEBEAT_VERSION 7.7.0
+ENV FILEBEAT_VERSION 7.8.1
 ENV FILEBEAT_SOURCE_PATH ${GOPATH}/src/github.com/elastic
 
-ENV GOPROXY https://goproxy.cn
+ENV GOPROXY https://goproxy.io
 
-COPY processors /processors
+COPY processors /tmp/processors
 
 WORKDIR ${FILEBEAT_SOURCE_PATH}
 
@@ -15,17 +15,17 @@ RUN set -ex \
     && git clone https://github.com/elastic/beats.git \
     && cd ${FILEBEAT_SOURCE_PATH}/beats/filebeat \
     && git checkout v${FILEBEAT_VERSION} -b v${FILEBEAT_VERSION} \
-    && for p in $(cat /processors); do \
-        echo "import _ \"$p\"" >> ../libbeat/cmd/instance/imports_common.go; \
+    && for p in $(cat /tmp/processors); do \
+           echo "import _ \"$p\"" >> ../libbeat/cmd/instance/imports_common.go; \
        done \
     && make
 
-FROM alpine:3.11 as dist
+FROM alpine:3.12 as dist
 
 ARG TZ="Asia/Shanghai"
 
 ENV TZ ${TZ}
-ENV FILEBEAT_VERSION 7.7.0
+ENV FILEBEAT_VERSION 7.8.1
 
 RUN set -ex \
     && apk upgrade \
