@@ -3,8 +3,6 @@ FROM golang:1.14.6-alpine3.12 as builder
 ENV FILEBEAT_VERSION 7.8.1
 ENV FILEBEAT_SOURCE_PATH ${GOPATH}/src/github.com/elastic
 
-ENV GOPROXY https://goproxy.io
-
 COPY processors /tmp/processors
 
 WORKDIR ${FILEBEAT_SOURCE_PATH}
@@ -18,6 +16,7 @@ RUN set -ex \
     && for p in $(cat /tmp/processors); do \
            echo "import _ \"$p\"" >> ../libbeat/cmd/instance/imports_common.go; \
        done \
+    && cat ../libbeat/cmd/instance/imports_common.go \
     && make
 
 FROM alpine:3.12 as dist
