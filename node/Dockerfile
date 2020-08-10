@@ -35,6 +35,8 @@ RUN set -ex \
 
 COPY cnpm /usr/local/bin/cnpm
 
+RUN npm install -g pnpm
+
 ENTRYPOINT ["tini","--"]
 
 CMD ["node"]
