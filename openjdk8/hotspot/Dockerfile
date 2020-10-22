@@ -1,4 +1,4 @@
-FROM {{BASE_IMAGE}}
+FROM adoptopenjdk:8-jdk-openj9
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
