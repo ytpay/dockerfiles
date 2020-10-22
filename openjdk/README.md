@@ -1,6 +1,6 @@
-## openjdk8
+## openjdk
 
-> 本镜像为 opnejkdk8 基础镜像，基础镜像来源于官方 openjdk8 镜像；
+> 本镜像为 opnejkdk 基础镜像，基础镜像来源于 AdoptOpenJDK 镜像；容器化环境下推荐切换到 OpenJ9。
 
 ### Tini
 
