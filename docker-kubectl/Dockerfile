@@ -11,7 +11,7 @@ ENV KUBECTL_DOWNLOAD_URL https://storage.googleapis.com/kubernetes-release/relea
 
 RUN apk upgrade --update \
     && apk add libc6-compat bash curl tzdata wget ca-certificates git \
-    && wget ${KUBECTL_DOWNLOAD_URL} -O /usr/bin/kubectl \
+    && wget -q ${KUBECTL_DOWNLOAD_URL} -O /usr/bin/kubectl \
     && chmod +x /usr/bin/kubectl \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone \
