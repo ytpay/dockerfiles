@@ -10,7 +10,7 @@ ENV KUBE_VERSION v1.19.3
 ENV KUBECTL_DOWNLOAD_URL https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl
 
 RUN apk upgrade --update \
-    && apk add bash curl tzdata wget ca-certificates git \
+    && apk add libc6-compat bash curl tzdata wget ca-certificates git \
     && wget ${KUBECTL_DOWNLOAD_URL} -O /usr/bin/kubectl \
     && chmod +x /usr/bin/kubectl \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
