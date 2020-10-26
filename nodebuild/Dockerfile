@@ -33,7 +33,9 @@ RUN set -ex \
     && apt autoclean -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g pnpm
+RUN set -ex \
+    && npm install -g npm \
+    && npm install -g pnpm
 
 COPY cnpm /usr/local/bin/cnpm
 
