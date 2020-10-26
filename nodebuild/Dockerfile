@@ -1,4 +1,4 @@
-FROM node:node:lts-buster
+FROM node:lts-buster
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
