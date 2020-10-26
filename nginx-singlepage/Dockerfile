@@ -1,4 +1,4 @@
-FROM nginx:1.17.3-alpine
+FROM nginx:1.19-alpine
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
@@ -12,7 +12,7 @@ RUN apk upgrade --update \
     && echo ${TZ} > /etc/timezone \
     && rm -rf /usr/share/nginx/html /var/cache/apk/*
 
-COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
+COPY singlepage.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
