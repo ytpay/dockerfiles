@@ -19,7 +19,7 @@ ENV TINI_DOWNLOAD_URL https://github.com/krallin/tini/releases/download/${TINI_V
 RUN set -ex \
     && apt update \
     && apt upgrade -y \
-    && apt install tzdata locales curl procps dnsutils iputils-ping build-essential python2 -y \
+    && apt install tzdata locales nload htop git curl wget procps dnsutils iputils-ping build-essential python2 -y \
     && ln -sf $(which python2) /usr/bin/python \
     && curl -sSL ${TINI_DOWNLOAD_URL} > /usr/bin/tini \
     && chmod +x /usr/bin/tini \
