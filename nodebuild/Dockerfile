@@ -34,6 +34,7 @@ RUN set -ex \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex \
+    && npm config set unsafe-perm true \
     && npm install -g npm \
     && npm install -g pnpm fis3
 
