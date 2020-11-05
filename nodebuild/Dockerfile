@@ -35,7 +35,7 @@ RUN set -ex \
 
 RUN set -ex \
     && npm install -g npm \
-    && npm install -g pnpm
+    && npm install -g pnpm fis3
 
 COPY cnpm /usr/local/bin/cnpm
 
