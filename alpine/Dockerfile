@@ -8,7 +8,7 @@ ENV TZ ${TZ}
 
 RUN apk upgrade \
     && apk add bash tzdata bind-tools busybox-extras ca-certificates \
-        libc6-compat wget curl git \
+        libc6-compat wget curl git openssh \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone \
     && rm -rf /var/cache/apk/*
